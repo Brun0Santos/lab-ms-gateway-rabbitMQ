@@ -1,6 +1,7 @@
 package io.github.bruno.msclientservice.services;
 
 import io.github.bruno.msclientservice.entities.ClientEntity;
+import io.github.bruno.msclientservice.exceptions.UserNotFoundResponseException;
 import io.github.bruno.msclientservice.repositories.ClientRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,6 @@ public class ClientService {
 
     public Optional<ClientEntity> getByClient(String cpf) {
         Optional<ClientEntity> byClient = clientRepository.findByCpf(cpf);
-        return Optional.of(byClient.orElseThrow());
+        return Optional.of(byClient.orElseThrow(UserNotFoundResponseException::new));
     }
 }
