@@ -21,6 +21,7 @@ public class MsCloudGatewayApplication {
         return builder.routes()
                 .route(r -> r.path("/clients/**").uri("lb://microservice-clients"))
                 .route(r -> r.path("/cards/**").uri("lb://microservice-cards"))
+                .route(r -> r.path("/card-review/**").uri("lb://microservice-card-review"))
                 .build();
     }
 }

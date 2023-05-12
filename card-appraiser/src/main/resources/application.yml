@@ -1,6 +1,6 @@
 spring:
   application:
-    name: microservice-cards
+    name: microservice-card-review
 
 server:
   port: 0
