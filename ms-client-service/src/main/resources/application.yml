@@ -1,9 +1,9 @@
 spring:
   application:
-    name: microservice-cards
+    name: microservice-clients
 
 server:
-  port: 8082
+  port: 0
 
 eureka:
   client:
