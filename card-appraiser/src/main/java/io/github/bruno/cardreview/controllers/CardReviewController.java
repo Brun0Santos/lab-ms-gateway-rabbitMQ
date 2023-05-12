@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/card-review")
 public class CardReviewController {
@@ -22,8 +24,8 @@ public class CardReviewController {
     }
 
     @GetMapping("/customer-situation/{cpf}")
-    public ResponseEntity<CustomerSituation> consultStatusByClient(@PathVariable String cpf) {
-        CustomerSituation customerStatus = reviewClientService.getCustomerStatus(cpf);
+    public ResponseEntity<Optional<CustomerSituation>> consultStatusByClient(@PathVariable String cpf) {
+        Optional<CustomerSituation> customerStatus = Optional.ofNullable(reviewClientService.getCustomerStatus(cpf));
         return ResponseEntity.ok().body(customerStatus);
     }
 }
