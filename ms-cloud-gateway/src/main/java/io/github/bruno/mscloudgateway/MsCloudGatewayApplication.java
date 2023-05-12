@@ -20,6 +20,7 @@ public class MsCloudGatewayApplication {
     public RouteLocator router(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path("/clients/**").uri("lb://microservice-clients"))
+                .route(r -> r.path("/cards/**").uri("lb://microservice-cards"))
                 .build();
     }
 }
