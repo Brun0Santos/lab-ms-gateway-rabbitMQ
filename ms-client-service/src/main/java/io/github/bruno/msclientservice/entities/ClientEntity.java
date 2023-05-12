@@ -18,6 +18,10 @@ public class ClientEntity {
     public ClientEntity() {
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public String getCpf() {
         return cpf;
     }

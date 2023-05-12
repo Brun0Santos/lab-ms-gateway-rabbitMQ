@@ -1,5 +1,6 @@
 package io.github.bruno.cardreview.controllers;
 
+import io.github.bruno.cardreview.entities.CustomerSituation;
 import io.github.bruno.cardreview.services.ReviewClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,8 @@ public class CardReviewController {
     }
 
     @GetMapping("/customer-situation/{cpf}")
-    public ResponseEntity<String> consultStatusByClient(@PathVariable String cpf) {
-        reviewClientService.getCustomerStatus(cpf);
+    public ResponseEntity<CustomerSituation> consultStatusByClient(@PathVariable String cpf) {
+        CustomerSituation customerStatus = reviewClientService.getCustomerStatus(cpf);
+        return ResponseEntity.ok().body(customerStatus);
     }
 }
