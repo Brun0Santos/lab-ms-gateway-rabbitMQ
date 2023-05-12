@@ -1,5 +1,6 @@
 package io.github.bruno.mscards.controllers;
 
+import io.github.bruno.mscards.dto.CardDto;
 import io.github.bruno.mscards.entities.CardEntity;
 import io.github.bruno.mscards.services.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class CardsController {
     }
 
     @GetMapping("/{income}")
-    public Optional<List<CardEntity>> listCards(@PathVariable("income") Integer income) {
+    public Optional<List<CardDto>> listCards(@PathVariable("income") Integer income) {
         return cardService.listCardsByIncome(income);
     }
 }
