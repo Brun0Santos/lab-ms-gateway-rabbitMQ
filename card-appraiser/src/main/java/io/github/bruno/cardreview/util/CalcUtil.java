@@ -1,4 +1,4 @@
-package io.github.bruno.cardreview.configs.util;
+package io.github.bruno.cardreview.util;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

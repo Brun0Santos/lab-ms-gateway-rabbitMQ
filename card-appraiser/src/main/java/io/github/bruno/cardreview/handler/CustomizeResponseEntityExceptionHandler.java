@@ -1,6 +1,5 @@
 package io.github.bruno.cardreview.handler;
 
-import feign.FeignException;
 import io.github.bruno.cardreview.exceptions.ResponseException;
 import io.github.bruno.cardreview.exceptions.UnexpectedException;
 import io.github.bruno.cardreview.exceptions.UserNotFoundException;

@@ -32,9 +32,6 @@ public class CardReviewController {
     @PostMapping
     public List<CardApprovedDto> accountEvaluation(@RequestBody EvaluationDataDto dataEvaluation) {
         List<CardApprovedDto> cardApprovedDto = reviewClientService.dataReview(dataEvaluation);
-
-        //return ResponseEntity.ok().body(cardApprovedDto);
-
         return ResponseEntity.ok().body(cardApprovedDto).getBody();
     }
 }

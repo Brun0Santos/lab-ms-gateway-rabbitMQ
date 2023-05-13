@@ -1,7 +1,7 @@
 package io.github.bruno.cardreview.services;
 
 import feign.FeignException;
-import io.github.bruno.cardreview.configs.util.CalcUtil;
+import io.github.bruno.cardreview.util.CalcUtil;
 import io.github.bruno.cardreview.dto.CardApprovedDto;
 import io.github.bruno.cardreview.dto.CardDto;
 import io.github.bruno.cardreview.dto.EvaluationDataDto;
@@ -13,7 +13,6 @@ import io.github.bruno.cardreview.feign.ConsumersFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -31,22 +30,12 @@ public class ReviewClientService {
         }
     }
 
-    //List<CardApprovedDto>
     public List<CardApprovedDto> dataReview(EvaluationDataDto data) {
-
         List<ClientCardEntity> clientCards = consumersFeign.consumerCards(data.getCpf());
         List<CardDto> dataCards = consumersFeign.consumerDataCards(data.getIncome());
-
-
-        List<CardApprovedDto> list = dataCards.stream().map(cards -> {
+        return dataCards.stream().map(cards -> {
             return new CardApprovedDto(cards.getName(), cards.getCardFlag(), CalcUtil.incomeCalculation(cards.getBasicLimit()));
         }).toList();
-
-        System.out.println(list);
-
-        return list;
-
-
     }
 }
 

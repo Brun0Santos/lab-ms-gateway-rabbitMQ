@@ -21,4 +21,12 @@ public class ClientCardEntity {
         return limitReleased;
     }
 
+    @Override
+    public String toString() {
+        return "ClientCardEntity{" +
+                "name='" + name + '\'' +
+                ", cardFlag='" + cardFlag + '\'' +
+                ", limitReleased=" + limitReleased +
+                '}';
+    }
 }
