@@ -9,4 +9,16 @@ public class ClientCardEntity {
     private String cardFlag;
     private BigDecimal limitReleased;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getCardFlag() {
+        return cardFlag;
+    }
+
+    public BigDecimal getLimitReleased() {
+        return limitReleased;
+    }
+
 }
